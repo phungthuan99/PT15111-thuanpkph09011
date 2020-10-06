@@ -1,15 +1,17 @@
 <!-- kế thừa file master: student-layout/master.blade.php -->
-@extends('student-layout.master')
+@extends('students.master')
 
 <!-- thay đổi nội dung đơn giản -->
-@section('title','Title-list extends')
+@section('title','Danh sach sinh vien')
 <!-- thay đổi nội dung phức tạp -->
 
 @section('header', 'header-list extends')
 
 @section('content')
-list
-<table class="table table-light">
+<th>
+    <a class="btn btn-success" href="{{ route('students.create') }}">Add student</a>
+</th>
+<table class="table table-light border">
     <thead>
         <tr>
             <th scope="col">ID</th>
@@ -19,6 +21,8 @@ list
             <th scope="col">Gender</th>
             <th scope="col">Addres</th>
             <th scope="col">Active</th>
+            <th scope="col">Sửa</th>
+            <th scope="col">Xóa</th>
         </tr>
     </thead>
     <tbody>
@@ -39,10 +43,18 @@ list
             </td>
             <td>{{$student->address}}</td>
             <td>{{$student->is_active == 0 ? 'Yes' : 'No'}}</td>
+            <td><a class="btn btn-sm btn-warning" href="{{ route('students.edit', $student->id) }}">Edit</a></td>
+            <td>
+                <form action="{{ route('students.destroy', $student->id) }}" method="post">
+                    @csrf
+                    <input type="hidden" value="Delete" name="_method">
+                    <button type="submit" class="btn btn-sm btn-danger">Xóa</button>
+                </form>
+            </td>
         </tr>
         @endforeach
     </tbody>
 </table>
-@endsection
+@endsection('content')
 
 @section('footer', 'Footer list extends')
