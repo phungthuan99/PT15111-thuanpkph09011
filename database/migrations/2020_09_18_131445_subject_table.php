@@ -15,6 +15,8 @@ class SubjectTable extends Migration
     {
         Schema::create('subject_table', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->boolean('is_active');
             $table->timestamps();
         });
     }
