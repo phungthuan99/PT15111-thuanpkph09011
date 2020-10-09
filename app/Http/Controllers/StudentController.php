@@ -16,9 +16,11 @@ class StudentController extends Controller
     // index() su dung phuong thuc GET, route name la students.index
     public function index()
     {
-        $students = Student::all(); //lay ra het
+        $students = Student::all(); //lấy ra hết
         // hoac $students = Student::orderBy('id', 'desc')->get();
 
+        $students = Student::paginate(5);
+        // thêm param page = "giá trị page"
         return view('students.list', ['students' => $students]);
     }
 

@@ -81,7 +81,7 @@
                             <a href="#" class="nav-link active">
                                 <i class='fas fa-user-graduate' style='font-size:24px'></i>
                                 <p>
-                                    Student
+                                    Students
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
@@ -96,6 +96,57 @@
                                     <a href="{{ asset('/students/create') }}" class="nav-link">
                                         <i class='fas fa-user-plus' style='font-size:24px'></i>
                                         <p>Add</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-treeview menu-close">
+                            <a href="#" class="nav-link active">
+                                <i class="fas fa-list nav-icon">&nbsp;</i>
+                                <p>
+                                    Categories
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ asset('/categories') }}" class="nav-link">
+                                        <i class="fas fa-list nav-icon">&nbsp;</i>
+                                        <p>List</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-treeview menu-close">
+                            <a href="#" class="nav-link active">
+                                <i class='far fa-newspaper' style='font-size:24px'></i>
+                                <p>
+                                    Posts
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ asset('/posts') }}" class="nav-link">
+                                        <i class="fas fa-list nav-icon">&nbsp;</i>
+                                        <p>List</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-treeview menu-close">
+                            <a href="#" class="nav-link active">
+                                <i class="material-icons" style="font-size:24px">comment</i>
+                                <p>
+                                    Comments
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ asset('/comments') }}" class="nav-link">
+                                        <i class="fas fa-list nav-icon">&nbsp;</i>
+                                        <p>List</p>
                                     </a>
                                 </li>
                             </ul>

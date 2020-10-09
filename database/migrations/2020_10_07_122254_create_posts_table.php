@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class SubjectTable extends Migration
+class CreatePostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class SubjectTable extends Migration
      */
     public function up()
     {
-        Schema::create('subject_table', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->boolean('is_active');
+            $table->string('desc');
+            $table->string('content');
+            $table->string('image_url')->nullable();
+            $table->integer('status');
+            $table->unsignedBigInteger('student_id');
             $table->timestamps();
         });
     }
@@ -28,6 +31,6 @@ class SubjectTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('subject_table');
+        Schema::dropIfExists('posts');
     }
 }

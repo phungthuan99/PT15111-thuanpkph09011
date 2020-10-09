@@ -2,9 +2,14 @@
 
 namespace Database\Seeders;
 
+use App\Models\Category;
+use App\Models\Category_Post;
+use App\Models\Comment;
+use App\Models\Post;
 use App\Models\Student;
 use App\Models\Subject;
 use Illuminate\Database\Seeder;
+use SubjectTable;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,7 +21,10 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         Student::factory(10)->create();
-        Student::factory(20)->create();
+        Post::factory(10)->create();
+        Category::factory(10)->create();
+        Category_Post::factory(10)->create();
+        Comment::factory(10)->create();
         // $this->call([
         //     TableFirst::class,
         //     SubjectTableSeeder::class,

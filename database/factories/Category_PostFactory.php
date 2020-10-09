@@ -2,18 +2,18 @@
 
 namespace Database\Factories;
 
-use App\Models\Model;
+use App\Models\Category_Post;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
-class ModelFactory extends Factory
+class Category_PostFactory extends Factory
 {
     /**
-     * The name of the factory's corresponding model.
+     * The name of the factory's corresponding Category_Post.
      *
      * @var string
      */
-    protected $model = Model::class;
+    protected $model = Category_Post::class;
 
     /**
      * Define the model's default state.
@@ -23,7 +23,8 @@ class ModelFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'post_id' => $this->faker->numberBetween(1, 10),
+            'category_id' => $this->faker->numberBetween(1, 10),
         ];
     }
 }

@@ -57,6 +57,9 @@
             <td><a class="btn btn-sm btn-success" href="{{ route('students.show', $student->id) }}">Detail</a></td>
         </tr>
         @endforeach
+        <tr>
+            <td colspan="10">{{ $students->links() }}</td>
+        </tr>
     </tbody>
 </table>
 @endsection('content')

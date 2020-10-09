@@ -2,18 +2,19 @@
 
 namespace Database\Factories;
 
-use App\Models\Model;
+use App\Models\Category;
+use App\Models\Category_Post;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
-class ModelFactory extends Factory
+class CategoryFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Model::class;
+    protected $model = Category::class;
 
     /**
      * Define the model's default state.
@@ -23,9 +24,9 @@ class ModelFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name,
-            'time' => $this->faker->dateTime(),
-            'is_active' => $this->faker->numberBetween(0, 1)
+            'parent_id' => $this->faker->numberBetween(1, 10),
+            'name' => $this->faker->text(5),
+            'status' => 1,
         ];
     }
 }
