@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Subject extends Model
+class Category_Post extends Model
 {
     use HasFactory;
-    protected $table = 'subject';
-    protected $filltable = [
-        'name',
-        'is_active'
+    protected $table = 'category_post';
 
+    protected $filltable = [
+        'post_id',
+        'category_id',
     ];
 }

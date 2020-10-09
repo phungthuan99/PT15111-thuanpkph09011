@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\PostController;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
 use App\Models\Student;
@@ -7,6 +10,7 @@ use Facade\FlareClient\View;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubjectController;
+use App\Models\Post;
 use SebastianBergmann\Type\VoidType;
 // use request để nhận dữ liệu lên theo pt request
 use Illuminate\Http\Request;
@@ -63,10 +67,16 @@ Route::resource('students', StudentController::class)
     // ->only(['index']); khi chi dung ham nao do
     // ->except(['create', 'edit']); khi can bo qua ham nao do
 ;
+
+Route::resource('comments', CommentController::class);
 // Tao route cho subject controller khong dung resource
 Route::get('subjects', [SubjectController::class, 'index'])
     ->name('subjects.index');
 
+
+Route::resource('posts', PostController::class);
+
+Route::resource('categories', CategoryController::class);
 //chuc năng login va route post
 Route::get('/login', function () {
     return view('login');
@@ -87,3 +97,8 @@ Route::post('/post-login', function (Request $request) {
 
     //xử lý logic, truy vấn...
 })->name('post-login');
+
+Route::get('/post', function () {
+    $post = Post::find(4);
+    dd($post);
+});

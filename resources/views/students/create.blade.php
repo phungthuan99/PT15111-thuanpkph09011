@@ -6,9 +6,11 @@
 
 @section('content')
 
-<form action="{{ route('students.store', $student->id )}}" method="GET">
+@section('title-2','Add Student')
+
+<form action="{{ route('students.store')}}" method="POST">
     @csrf
-    <input type="hidden" name="_method" value="GET">
+    <!-- <input type="hidden" name="_method" value="GET"> -->
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="inputEmail4">Name</label>
@@ -32,14 +34,14 @@
     <div class="form-row">
         <div class="form-group col-md-6 ">
             <label for="inputGender">Gender</label><br>
-            <input type="radio" checked="{{ $student->gender }}" name="gender" id="inputGender" value="0">Nam<br>
-            <input type="radio" checked="{{ $student->gender }}" name="gender" id="inputGender" value="1">Nữ<br>
-            <input type="radio" checked="{{ $student->gender }}" name="gender" id="inputGender" value="2">Khác<br>
+            <input type="radio" checked="" name="gender" id="inputGender" value="0">Nam<br>
+            <input type="radio" checked="" name="gender" id="inputGender" value="1">Nữ<br>
+            <input type="radio" checked="" name="gender" id="inputGender" value="2">Khác<br>
         </div>
         <div class="form-group col-md-6 ">
             <label for="inputStatus">Status</label><br>
-            <input type="radio" name="is_active" id="inputStatus" value="0" checked="{{ $student->is_active === 0 }}">Kích Hoạt<br>
-            <input type="radio" name="is_active" id="inputStatus" value="1" checked="{{ $student->is_active === 1 }}">Chưa kích hoạt<br>
+            <input type="radio" name="is_active" id="inputStatus" value="0" checked="">Kích Hoạt<br>
+            <input type="radio" name="is_active" id="inputStatus" value="1" checked="">Chưa kích hoạt<br>
         </div>
     </div>
     <button type="submit" class="btn btn-primary col-6 offset-3">Create</button>

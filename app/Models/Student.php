@@ -9,7 +9,7 @@ class Student extends Model
 {
     use HasFactory;
 
-    protected $table = 'table_first';
+    protected $table = 'students';
 
     protected $filltable = [
         'name',
@@ -19,4 +19,11 @@ class Student extends Model
         'address',
         'is_active'
     ];
+
+    // function post() thể hiện 1 sinh viên se có nhiều bài post
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class, 'student_id', 'id');
+    }
 }

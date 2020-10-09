@@ -6,6 +6,8 @@
 
 
 @section('title', 'Edit student ' . $student->name)
+
+@section('title-2','Edit Student')
 <form action="{{ route('students.update', $student->id )}}" method="POST">
     @csrf
     <input type="hidden" name="_method" value="PUT">

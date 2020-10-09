@@ -16,9 +16,11 @@ class StudentController extends Controller
     // index() su dung phuong thuc GET, route name la students.index
     public function index()
     {
-        $students = Student::all(); //lay ra het
+        $students = Student::all(); //lấy ra hết
         // hoac $students = Student::orderBy('id', 'desc')->get();
 
+        $students = Student::paginate(5);
+        // thêm param page = "giá trị page"
         return view('students.list', ['students' => $students]);
     }
 
@@ -41,15 +43,16 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        $name = $this->name;
-        $phone = $this->phone;
-        $age = $this->age;
-        $gender = $this->gender;
-        $address = $this->address;
-        $is_active = $this->is_active;
+        $student = new Student;
 
-        // thực hiện gọi phương thức server
-        $this->save();
+        $student->name = $request->name;
+        $student->phone = $request->phone;
+        $student->age = $request->age;
+        $student->gender = $request->gender;
+        $student->address = $request->address;
+        $student->is_active = $request->is_active;
+
+        $student->save();
 
         return redirect()->route('students.index');
     }
@@ -99,6 +102,8 @@ class StudentController extends Controller
         $student->gender = $request->gender;
         $student->address = $request->address;
         $student->is_active = $request->is_active;
+        $student->created_at = $request->created_at;
+        $student->updated_at = $request->updated_at;
 
         // thực hiện gọi phương thức server
         $student->save();

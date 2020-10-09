@@ -8,10 +8,12 @@
 @section('header', 'header-list extends')
 
 @section('content')
+
+@section('title-2','List Students')
 <th>
     <a class="btn btn-success" href="{{ route('students.create') }}">Add student</a>
 </th>
-<table class="table table-light border">
+<table class="table table-hover">
     <thead>
         <tr>
             <th scope="col">ID</th>
@@ -21,8 +23,9 @@
             <th scope="col">Gender</th>
             <th scope="col">Addres</th>
             <th scope="col">Active</th>
-            <th scope="col">Sửa</th>
-            <th scope="col">Xóa</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+            <th scope="col">Detail</th>
         </tr>
     </thead>
     <tbody>
@@ -51,8 +54,12 @@
                     <button type="submit" class="btn btn-sm btn-danger">Xóa</button>
                 </form>
             </td>
+            <td><a class="btn btn-sm btn-success" href="{{ route('students.show', $student->id) }}">Detail</a></td>
         </tr>
         @endforeach
+        <tr>
+            <td colspan="10">{{ $students->links() }}</td>
+        </tr>
     </tbody>
 </table>
 @endsection('content')

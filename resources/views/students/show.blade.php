@@ -1,11 +1,12 @@
+<input type="hidden" name="">
 @extends('admin-layout.master')
 
 @section('title', 'Chi tiet sinh vien')
 
 @section('content')
 <!-- View hien thi chi tiet sinh vien -->
-
-<table class="table table-light border">
+@section('title-2', 'Chi tiết sinh viên')
+<table class="table table-hover">
     <thead>
         <tr>
             <th scope="col">ID</th>
@@ -48,3 +49,5 @@
     </tbody>
 </table>
 @endsection('content')
+
+@section('footer')
